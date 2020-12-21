@@ -5,33 +5,49 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<title>Storming Stack</title>
+<style>
+</style>
 </head>
 <body>
-	<%
-		String userID = null;
-		if(session.getAttribute("userID") != null){
-			userID = (String)session.getAttribute("userID");
-		}
-	%>
+	<div class="w3-container" style="padding: 10px;">
+		<header>
+			<h1 style="display: inline; padding-top: 120px; padding-left: 30px;">
+				<a href="index.jsp"><b>Storming Stack</b></a>
+				<a href="#"><img src="./images/user_image.png" style="width: 65px;" class="w3-circle w3-right w3-margin"></a>
+			</h1>
+
+			<%
+				String userID = null;
+				if (session.getAttribute("userID") != null) {
+					userID = (String) session.getAttribute("userID");
+				}
+				int pageNumber = 1;
+				if (request.getParameter("pageNumber") != null) {
+					pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+				}
+			%>
+			<%
+				if (userID == null) {
+			%>
+			<ul class="w3-right w3-margin " style="padding: 20px;">
+				<li><a href="login.jsp">로그인</a></li>
+				<li><a href="join.jsp">회원가입</a></li>
+			</ul>
+			<%
+				} else {
+			%>
+			<ul class="w3-right w3-margin " style="padding: 20px;">
+				<li><a href="write.jsp">글쓰기</a></li>
+				<li><a href="logoutAction.jsp">로그아웃</a></li>
+			</ul>
+			<%
+				}
+			%>
+		</header>
+	</div>
 	
-	<%
-		if(userID == null){
-	%>
-		<ul>
-			<li><a href="login.jsp">로그인</a></li>
-			<li><a href="join.jsp">회원가입</a></li>
-		</ul>
-	<%
-		}else{
-	%>
-		<ul>
-			<li><a href="logoutAction.jsp">로그아웃</a></li>
-		</ul>
-		<div><a href="bbs.jsp">게시판</a></div>
-	<%
-		}
-	%>
 	<div class="container">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
