@@ -1,6 +1,6 @@
 <%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,14 +8,22 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>Storming Stack</title>
 <style>
+a {
+	text-decoration: none;
+}
+
+.mySlides {
+	display: none;
+}
 </style>
 </head>
 <body>
 	<div class="w3-container" style="padding: 10px;">
 		<header>
 			<h1 style="display: inline; padding-top: 120px; padding-left: 30px;">
-				<a href="index.jsp"><b>Storming Stack</b></a>
-				<a href="#"><img src="./images/user_image.png" style="width: 65px;" class="w3-circle w3-right w3-margin"></a>
+				<a href="index.jsp"><b>Storming Stack</b></a> <a href="#"><img
+					src="./images/user_image.png" style="width: 65px;"
+					class="w3-circle w3-right w3-margin"></a>
 			</h1>
 
 			<%
@@ -47,32 +55,40 @@
 			%>
 		</header>
 	</div>
-	
-	<div class="container">
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1" ></li>
-				<li data-target="#myCarousel" data-slide-to="2" ></li>
-			</ol>
-			<div class="carousel-inner">
-				<div class="item active">
-					<img src="img/1.jpg">
-				</div>
-				<div class="item active">
-					<img src="img/2.jpg">
-				</div>
-				<div class="item active">
-					<img src="img/3.jpg">
-				</div>
-			</div>
-			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left"></span>
-			</a>
-			<a class="right carousel-control" href="#myCarousel" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
-		</div>
+
+	<div class="w3-content w3-display-container">
+		<img class="mySlides" src="./images/1.jpg" style="width: 100%">
+		<img class="mySlides" src="./images/2.jpg" style="width: 100%">
+		<img class="mySlides" src="./images/3.jpg" style="width: 100%">
+
+		<button class="w3-button w3-black w3-display-left"
+			onclick="plusDivs(-1)">&#10094;</button>
+		<button class="w3-button w3-black w3-display-right"
+			onclick="plusDivs(1)">&#10095;</button>
 	</div>
+
+	<script>
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+			showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+			var i;
+			var x = document.getElementsByClassName("mySlides");
+			if (n > x.length) {
+				slideIndex = 1
+			}
+			if (n < 1) {
+				slideIndex = x.length
+			}
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";
+			}
+			x[slideIndex - 1].style.display = "block";
+		}
+	</script>
 </body>
 </html>
