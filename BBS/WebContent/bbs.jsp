@@ -21,8 +21,8 @@ ul{	list-style: none;}
 
 <div class="w3-container" style="padding:10px;">
 <header>
-	<h1 style ="display : inline; margin-top:100px;"><b>	Storming</b>
-	<a href="#"><img src="./images/user_image.png" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+	<h1 style ="display : inline; padding-top:120px; padding-left:30px; "><b>Storming</b>
+	<a href="#"><img src="./images/user_image.png" style="width:65px;" class="w3-circle w3-right w3-margin"></a>
 	
 	
 	</h1>
@@ -40,14 +40,15 @@ ul{	list-style: none;}
 	<%
 		if(userID == null){
 	%>
-		<ul class ="w3-right w3-margin " style="padding:30px;">
+		<ul class ="w3-right w3-margin " style="padding:20px;">
 			<li><a href="login.jsp">로그인</a></li>
 			<li><a href="join.jsp">회원가입</a></li>
 		</ul>
 	<%
 		} else {
 	%>
-		<ul class ="w3-right w3-margin " style="padding:30px;">
+		<ul class ="w3-right w3-margin " style="padding:20px;">
+			<li><a href="write.jsp">글쓰기</a></li>
 			<li><a href="logoutAction.jsp">로그아웃</a></li>
 		</ul>
 	<%
@@ -55,8 +56,9 @@ ul{	list-style: none;}
 	%>
 	
 </header>
-</div>
 
+</div>
+<hr>
 
 
 
@@ -72,7 +74,7 @@ ul{	list-style: none;}
 		<div class="w3-third">
 		<a href="view.jsp?bbsID=<%=list.get(i).getBbsID()%>">
 			<div class="w3-card">
-			<img src="img_5terre.jpg" style="width:100%">
+			<img src="https://picsum.photos/200/250" style="width:100%">
 				<div class="w3-container">
 					<h4><%=list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></h4>
 				</div>
