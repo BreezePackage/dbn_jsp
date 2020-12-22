@@ -5,11 +5,19 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
+<title>Storming</title>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+ul{list-style: none;}
+</style>
+<body class="w3-theme-l5">
+
 	<%
 		String userID = null;
 		if(session.getAttribute("userID") != null){
@@ -44,47 +52,33 @@
 	<%
 		}
 	%>
-	<div class="container">
-		<div>
-			<table class="table" style="text-align: center; border: 1px solid #dddddd">
-				<thead>
-					<tr>
-						<th colspan="3" style="background: #eeeeee; text-align: center;">게시판 글</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td style="width: 20%;">글 제목</td>
-						<td colspan="2"><%= bbs.getBbsTitle() %></td>
-					</tr>
-					<tr>
-						<td >작성자</td>
-						<td colspan="2"><%= bbs.getUserID() %></td>
-					</tr>
-					<tr>
-						<td >작성일자</td>
-						<td colspan="2"><%= bbs.getBbsDate() %></td>
-					</tr>
-					<tr>
-						<td >내용</td>
-						<td colspan="2" style="min-height: 200px; text-align: left;">
-						<!--웹브라우저가 특수문자 및 엔터처리를 이해할 수 있게 하는 작업 -->
-						<%= bbs.getBbsContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<%
-				if(userID != null && userID.equals(bbs.getUserID())){
-			%>
-				<a href="update.jsp?bbsID=<%= bbsID %>">수정</a>
-				<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?bbsID=<%= bbsID %>">삭제</a>
-			<%
-				}
-			%>
+
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin: auto;">    
+
+
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="./images/user_image.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity"><%= bbs.getBbsDate() %></span>
+        <h4><%= bbs.getBbsTitle() %>, <%= bbs.getUserID() %></h4><br>
+        <hr class="w3-clear">
+        <%= bbs.getBbsContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %><br><br>
+		<%
+			if(userID != null && userID.equals(bbs.getUserID())){
+	 	%>
+		<button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><a href="update.jsp?bbsID=<%= bbsID %>">수정</a></button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?bbsID=<%= bbsID %>">삭제</a></button> 
+      	<% } %>
+      </div>
+</div>
+
+
 			
-			<input type="submit" class="btn" value="글쓰기">
-		</div>
-	</div>
+
+<br>
+ 
+
 </body>
-</html>
+</html> 

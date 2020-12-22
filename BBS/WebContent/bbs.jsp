@@ -29,7 +29,7 @@ a {
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
 	<div class="w3-container" style="padding: 10px;">
 		<header>
-			<h1 style="display: inline; padding-top: 120px; padding-left: 30px;">
+			<h1 style="display: inline; padding-top: 120px; padding-left: 30px0;">
 				<a href="index.jsp"><b>Storming Stack</b></a>
 				<a href="#"><img src="./images/user_image.png" style="width: 65px;" class="w3-circle w3-right w3-margin"></a>
 			</h1>

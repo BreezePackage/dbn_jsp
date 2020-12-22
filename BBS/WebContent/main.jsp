@@ -26,6 +26,9 @@
 		img{
 			width:100%; height:100%;
 		}
+		ul{
+			list-style: none;
+		}
 	</style>
 </head>
 
