@@ -14,10 +14,12 @@
 	<title>Storming Stack</title>
 	
 	<style>
+		body{
+			min-width: 850px;
+		}
 		a {
 			text-decoration: none;
 		}
-
 		.mySlides {
 			display: none;
 		}
