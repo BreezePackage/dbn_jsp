@@ -86,8 +86,7 @@ a{
 
 
 <p class="w3-center">
-<input type="submit" class="w3-button w3-section w3-blue w3-ripple" vlaue="등록">
-<button class="w3-button w3-section w3-blue w3-ripple"> sign </button>
+<button type ="submit" class="w3-button w3-section w3-blue w3-ripple"> sign </button>
 </p>
 <script src="htts://code.jquery.com/jquery-3.1.1.min.js"></script>
 
