@@ -1,3 +1,4 @@
+<%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,6 +28,12 @@ a{
 				if (session.getAttribute("userID") != null) {
 					userID = (String) session.getAttribute("userID");
 				}
+				if (userID != null){
+					PrintWriter script = response.getWriter();
+					script.println("<script>");
+					script.println("location.href = 'login.jsp'");
+					script.println("</script>");
+				}
 				int pageNumber = 1;
 				if (request.getParameter("pageNumber") != null) {
 					pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
@@ -37,7 +44,6 @@ a{
 			%>
 			<ul class="w3-right w3-margin " style="padding: 20px;">
 				<li><a href="login.jsp">로그인</a></li>
-				<li><a href="join.jsp">회원가입</a></li>
 			</ul>
 			<%
 				} else {

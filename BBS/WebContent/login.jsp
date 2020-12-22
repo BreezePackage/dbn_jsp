@@ -26,23 +26,6 @@
 				pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 			}
 		%>
-		<%
-			if (userID == null) {
-		%>
-		<ul class="w3-right w3-margin " style="padding: 20px;">
-			<li><a href="login.jsp">로그인</a></li>
-			<li><a href="join.jsp">회원가입</a></li>
-		</ul>
-		<%
-			} else {
-		%>
-		<ul class="w3-right w3-margin " style="padding: 20px;">
-			<li><a href="write.jsp">글쓰기</a></li>
-			<li><a href="logoutAction.jsp">로그아웃</a></li>
-		</ul>
-		<%
-			}
-		%>
 	</header>
 	
 <!--로그인 박스 -->
@@ -62,12 +45,12 @@
           <label><b>Password</b></label>
           <input class="w3-input w3-border" type="password" placeholder="비밀번호" name="userPW" maxlength="20" required>
           
-          <button class="w3-button w3-block w3-grey w3-section w3-padding" type="submit">Login</button>
+          <button class="w3-button w3-block w3-light-grey w3-section w3-padding" type="submit">Login</button>
           
           <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me </div>
       </form>
 
-      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+      <div class="w3-container w3-border-top w3-padding-16 w3-grey">
         <span class="w3-right w3-padding w3-hide-small"> <a href="./join.jsp">Sign Up</a></span>
       </div>
       

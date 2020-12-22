@@ -26,9 +26,6 @@
 		img{
 			width:100%; height:100%;
 		}
-		ul{
-			list-style: none;
-		}
 	</style>
 </head>
 
@@ -61,36 +58,11 @@
 	<div class="w3-content w3-display-container">
 		<!--네비게이션-->
 		<div class="w3-bar w3-light-grey">
-		  <a href="main.jsp" class="w3-bar-item w3-button">Home</a>
-		  <a href="bbs.jsp" class="w3-bar-item w3-button">Storming List</a>
+		  <a href="#" class="w3-bar-item w3-button">all tag</a>
+		  <a href="#" class="w3-bar-item w3-button">my tag</a>
 		</div>
 		<hr>
-		<!-- 	carosel	 -->
-		<div id="demo" class="carousel slide" data-ride="carousel">
 
-			<!-- Indicators -->
-			<ul class="carousel-indicators">
-				<li data-target="#demo" data-slide-to="0" class="active"></li>
-				<li data-target="#demo" data-slide-to="1"></li>
-				<li data-target="#demo" data-slide-to="2"></li>
-			</ul>
-
-			<!-- The slideshow -->
-			<div class="carousel-inner">
-				<div class="carousel-item active"> <img src="./images/1.jpg" alt="Los Angeles"> </div>
-				<div class="carousel-item"> <img src="./images/2.jpg" alt="Chicago"> </div>
-				<div class="carousel-item"> <img src="./images/3.jpg" alt="New York"> </div>
-			</div>
-
-			<!-- Left and right controls -->
-			<a class="carousel-control-prev" href="#demo" data-slide="prev"> 
-				<span class="carousel-control-prev-icon"></span>
-			</a> 
-			<a class="carousel-control-next" href="#demo" data-slide="next">
-				<span class="carousel-control-next-icon"></span>
-			</a>
-		</div>
-		<%@ include file="./footer.jspf"%>
 	</div>
 </body>
 
