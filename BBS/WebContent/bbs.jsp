@@ -70,42 +70,49 @@ a {
 			%>
 		</header>
 	</div>
-
-	<div class="w3-row-padding w3-margin-top">
-		<%
-			BbsDAO bbsDAO = new BbsDAO();
-			ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
-			for (int i = 0; i < list.size(); i++) {
-		%>
-
-		<div class="w3-third">
-			<a href="view.jsp?bbsID=<%=list.get(i).getBbsID()%>">
-				<div class="w3-card w3-section">
-					<img src="https://picsum.photos/200/150" style="width: 100%">
-					<div class="w3-container">
-						<h4><%=list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;")
-						.replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></h4>
-					</div>
-				</div>
-			</a>
+<!--내용 -->
+	<div class="w3-content w3-display-container">
+		<!--네비게이션-->
+		<div class="w3-bar w3-light-grey">
+		  <a href="tagList.jsp" class="w3-bar-item w3-button">Tag</a>
+		  <input type="text" class="w3-bar-item w3-input w3-white w3-hide-small" placeholder="Search Storming data" style="width:35%">
 		</div>
+		<div class="w3-row-padding w3-margin-top">
+			<%
+				BbsDAO bbsDAO = new BbsDAO();
+				ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
+				for (int i = 0; i < list.size(); i++) {
+			%>
+	
+			<div class="w3-third">
+				<a href="view.jsp?bbsID=<%=list.get(i).getBbsID()%>">
+					<div class="w3-card w3-section">
+						<img src="https://picsum.photos/200/150" style="width: 100%">
+						<div class="w3-container">
+							<h4><%=list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;")
+							.replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></h4>
+						</div>
+					</div>
+				</a>
+			</div>
+			<%
+				}
+			%>
+		</div>		
+<!--인디케이터 -->
+		<%
+			if (pageNumber != 1) {
+		%>
+		<a href="bbs.jsp?pageNumber=<%=pageNumber - 1%>">before</a>
+		<%
+			}
+			if (bbsDAO.nextPage(pageNumber + 1)) {
+		%>
+		<a href="bbs.jsp?pageNumber=<%=pageNumber + 1%>">next</a>
 		<%
 			}
 		%>
 	</div>
-
-	<%
-		if (pageNumber != 1) {
-	%>
-	<a href="bbs.jsp?pageNumber=<%=pageNumber - 1%>">before</a>
-	<%
-		}
-		if (bbsDAO.nextPage(pageNumber + 1)) {
-	%>
-	<a href="bbs.jsp?pageNumber=<%=pageNumber + 1%>">next</a>
-	<%
-		}
-	%>
 
 </body>
 </html>

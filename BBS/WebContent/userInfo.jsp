@@ -35,21 +35,21 @@
 			<h1 style="display: block; text-align: center;">
 				<a href="index.jsp"><b>Storming Stack</b></a>
 			</h1>
+				<a href="login.jsp"><img src="./images/user_image.png" style="width: 40px;" class="w3-circle w3-right w3-margin"></a>
 
 			<% String userID=null; if (session.getAttribute("userID") !=null) { userID=(String)
 				session.getAttribute("userID"); } int pageNumber=1; if (request.getParameter("pageNumber")
 				!=null) { pageNumber=Integer.parseInt(request.getParameter("pageNumber")); } %>
 				<% if (userID==null) { %>
-				<a href="login.jsp"><img src="./images/user_image.png" style="width: 40px;" class="w3-circle w3-right w3-margin"></a>
-				<ul class="w3-right" style="padding: 20px;">
-					<li><a href="login.jsp">로그인</a></li>
-				</ul>
+					<ul class="w3-right" style="padding: 20px;">
+						<li><a href="login.jsp">로그인</a></li>
+						<li><a href="join.jsp">회원가입</a></li>
+					</ul>
 				<% } else { %>
-				<a href="userInfo.jsp"><img src="./images/user_image.png" style="width: 40px;" class="w3-circle w3-right w3-margin"></a>
-				<ul class="w3-right" style="padding: 20px;">
-					<!--<li><a href="write.jsp">글쓰기</a></li> -->
-					<li><a href="logoutAction.jsp">로그아웃</a></li>
-				</ul>
+					<ul class="w3-right" style="padding: 20px;">
+						<!--<li><a href="write.jsp">글쓰기</a></li> -->
+						<li><a href="logoutAction.jsp">로그아웃</a></li>
+					</ul>
 				<% } %>
 		</header>
 	</div>
